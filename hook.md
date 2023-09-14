@@ -3,6 +3,7 @@
 - Avoir un hook qui sauvegarde la base de données avant un commit
 - Avoir un hook qui restaure la base de données après un pull
 
+
 ## Prérequis : Afficher le dossier git
 - => file -> Settings --> Editor --> File Types --> Ignore files and folders --> retirer git
 - Le dossier.git n'étant pas sauvegarder, vous pourrez adapter ce md en le sauvegardant dans votre projet
