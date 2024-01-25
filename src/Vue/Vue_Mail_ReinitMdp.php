@@ -23,6 +23,7 @@ class Vue_Mail_ReinitMdp extends Vue_Composant
                             Renouveler mdp
                 </button>";
         $str .=  "
+        ".genereChampHiddenCSRF()."
  </form>
     ";
         return $str;

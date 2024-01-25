@@ -21,6 +21,7 @@ class Vue_Mail_ChoisirNouveauMdp  extends Vue_Composant
                 <button type='submit' id='submit' name='action' value='choixmdp'>
                       Confirmer le mdp
                 </button>
+         ".genereChampHiddenCSRF()."
             </form>
     ";
     }

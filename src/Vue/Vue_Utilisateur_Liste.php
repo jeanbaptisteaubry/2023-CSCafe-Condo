@@ -33,6 +33,7 @@ class Vue_Utilisateur_Liste extends Vue_Composant
                             value="nouveau"> 
                                 Nouvel utilisateur ? 
                         </button>
+               '.genereChampHiddenCSRF().'
                 </form>
             </td>
  
@@ -71,6 +72,7 @@ class Vue_Utilisateur_Liste extends Vue_Composant
                             name='action' value='ModifierUtilisateur'> 
                                 Modifier 
                         </button>
+              ".genereChampHiddenCSRF()."
                 </form>
             </td>
             <!-- Création du bouton Désactiver -->
@@ -90,6 +92,7 @@ class Vue_Utilisateur_Liste extends Vue_Composant
                                 name='action' value='DesactiverUtilisateur'> 
                                     Désactiver 
                         </button>
+              ".genereChampHiddenCSRF()."
                 </form>
             </td>
         </tr>
@@ -108,6 +111,7 @@ class Vue_Utilisateur_Liste extends Vue_Composant
                             name='action' value='ActiverUtilisateur'> 
                                 Activer 
                         </button>
+            ".genereChampHiddenCSRF()."
                 </form>
             </td>
         </tr>

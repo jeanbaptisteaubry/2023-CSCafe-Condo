@@ -28,6 +28,7 @@ class Vue_Demande_Approbation_Desactivation  extends Vue_Composant
                 <td style='width: 100px; height: 100px;'>
                     <button type='submit' name='action' value='AnnulerDesactivation'>Annuler</button>
                 </td>
+                ".genereChampHiddenCSRF()."
             </form>
             </table>
  ";

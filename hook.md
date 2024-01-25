@@ -48,10 +48,10 @@ DB_PASSWORD="mot_de_passe"
 DUMP_FILE="path/vers/votre/dossier/sql/$DB_NAME.sql"
 
 # (Optionnel) Sauvegardez la base de données actuelle avant de restaurer
-"$MYSQLDUMP" -u $DB_USER -p$DB_PASSWORD $DB_NAME > "path/vers/votre/dossier/backup_$(date +%Y%m%d%H%M%S).sql"
+"$MYSQLDUMP" -u $DB_USER -p $DB_PASSWORD $DB_NAME > "path/vers/votre/dossier/backup_$(date +%Y%m%d%H%M%S).sql"
 
 # Restaurez la base de données à partir du dump
-"$MYSQL" -u $DB_USER -p$DB_PASSWORD $DB_NAME < $DUMP_FILE
+"$MYSQL" -u $DB_USER -p $DB_PASSWORD $DB_NAME < $DUMP_FILE
 
 exit 0
 ```

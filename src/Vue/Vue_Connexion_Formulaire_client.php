@@ -35,7 +35,7 @@ class Vue_Connexion_Formulaire_client extends Vue_Composant
         }
 
         $str .=  "
-
+".genereChampHiddenCSRF()."
 </form>
 <form>
 
@@ -47,6 +47,7 @@ class Vue_Connexion_Formulaire_client extends Vue_Composant
 ";
 
         $str .= "
+        ".genereChampHiddenCSRF()."
 </form>
 </div>
     ";

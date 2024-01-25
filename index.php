@@ -23,7 +23,7 @@ if (isset($_SESSION["typeConnexionBack"])) {
 } else {
     $typeConnexion = "visiteur";
 }
-//error_log("typeConnexion : " . $typeConnexion)  ;
+error_log("typeConnexion : " . $typeConnexion)  ;
 //utiliser en débuggage pour avoir le type de connexion
 //$Vue->addToCorps(new Vue_AfficherMessage("<br>typeConnexion $typeConnexion<br>"));
 
@@ -32,7 +32,7 @@ if (isset($_REQUEST["case"]))
     $case = $_REQUEST["case"];
 else
     $case = "Cas_Par_Defaut";
-//error_log("case : " . $case);
+error_log("case : " . $case);
 //utiliser en débuggage pour avoir le type de connexion
 //$Vue->addToCorps(new Vue_AfficherMessage("<br>Case $case<br>"));
 
@@ -41,9 +41,32 @@ if (isset($_REQUEST["action"]))
     $action = $_REQUEST["action"];
 else
     $action = "Action_Par_Defaut";
-//error_log("action : " . $action);
+error_log("action : " . $action);
 //utiliser en débuggage pour avoir le type de connexion
-//$Vue->addToCorps(new Vue_AfficherMessage("<br>Action $action<br>"));
+if (isset($_REQUEST["CSRF"])) {
+    switch (verifierCSRF($_REQUEST["CSRF"])) {
+        case 1:
+            //On fait rien tout va bien !
+            break;
+        case 0:
+            error_log("CSRF : Echec 0");
+        case -1;
+            error_log("CSRF : Echec -1");
+            $case = "Cas_Par_Defaut";
+            $action = "Action_Par_Defaut";
+            unset($_SESSION["CSRF"]);
+            unset($_SESSION["typeConnexionBack"]);
+            $typeConnexion="visiteur";
+            break;
+    }
+} else {
+    $case = "Cas_Par_Defaut";
+    $action = "Action_Par_Defaut";
+    unset($_SESSION["CSRF"]);
+    unset($_SESSION["typeConnexionBack"]);
+    $typeConnexion="visiteur";
+    error_log("PAs CSRF");
+}
 
 switch ($typeConnexion) {
     case "visiteur" :
@@ -69,7 +92,7 @@ switch ($typeConnexion) {
                 include "Controleur/Controleur_Gerer_monCompte.php";
                 break;
             default:
-                $Vue->setMenu(new Vue_Menu_Administration());
+               // $Vue->setMenu(new Vue_Menu_Administration());
                 break;
         }
         break;

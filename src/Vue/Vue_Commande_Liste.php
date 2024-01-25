@@ -64,6 +64,7 @@ class Vue_Commande_Liste extends Vue_Composant
                                 <button type='submit' name='action' value='VoirDetailCommande'>
                                  Voir
                                 </button>
+                            ".genereChampHiddenCSRF()."
                             </form>
                         </td>
                     </tr>

@@ -88,7 +88,7 @@ private string $categorieUtilisateur="";
 
         $str .=  "</td>
         </tr>
-
+".genereChampHiddenCSRF()."
     </form>
 </table>
 

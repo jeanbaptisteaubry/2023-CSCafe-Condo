@@ -60,7 +60,7 @@ class Vue_Commande_Info_Entreprise extends Vue_Composant
                                 <input type='hidden' name='idCommande' value='$item[id]'/>
                                 
                                 <button type='submit' name='action' value='VoirDetailCommande'>Voir</button>
-                            
+                          ".genereChampHiddenCSRF()."  
                             </form>
                         </td>
                     </tr>

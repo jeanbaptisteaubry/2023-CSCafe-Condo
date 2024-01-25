@@ -25,6 +25,7 @@ class Vue_Liste_Categorie  extends Vue_Composant
             <input type='hidden' name='case' value='Gerer_catalogue'>
             
             </td> 
+            ".genereChampHiddenCSRF()."
         </form>
             <tr>
                 <th>ID Catégorie</th>
@@ -48,6 +49,7 @@ class Vue_Liste_Categorie  extends Vue_Composant
                               
                          <button class='btnRadius'  type='submit' name='action' value='ModifierCategorie'>
                           Modifier</button>
+                  ".genereChampHiddenCSRF()."
                     </form>
                 </td>
                 
@@ -63,6 +65,7 @@ class Vue_Liste_Categorie  extends Vue_Composant
                             <button class='btnRadius'  type='submit' name='action' value='DesactiverCategorie'>
                                 Désactiver
                              </button>
+                     ".genereChampHiddenCSRF()."
                        </form>
                   </td>";
             } elseif ($iemeCategorie["desactiverCategorie"] == 1) {
@@ -76,6 +79,7 @@ class Vue_Liste_Categorie  extends Vue_Composant
                             <button class='btnRadius'  type='submit' name='action' value='ActiverCategorie'>
                                 Activer
                              </button>
+                     ".genereChampHiddenCSRF()."
                        </form>
                   </td>";
             }

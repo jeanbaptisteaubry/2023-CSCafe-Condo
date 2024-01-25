@@ -25,6 +25,7 @@ class Vue_Produit_Tous extends Vue_Composant
                                 <input type='hidden' name='idCategorie' value='$this->idCategorie'>
                                 <button class='btnRadius' type='submit' value='nouveauProduit' name='action'>
                               Nouveau produit ?</button> 
+                         ".genereChampHiddenCSRF()."
                             </form>   
                         </td>
                     </tr>
@@ -87,6 +88,7 @@ class Vue_Produit_Tous extends Vue_Composant
                     ";
                 $str .= "</table>
             </button>
+            ".genereChampHiddenCSRF()."
             </form>";
             }
         } else {

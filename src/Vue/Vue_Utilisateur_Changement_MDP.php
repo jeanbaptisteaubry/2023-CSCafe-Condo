@@ -57,6 +57,7 @@ class Vue_Utilisateur_Changement_MDP extends Vue_Composant
                  </button>
             </td>
      </tr>
+     ".genereChampHiddenCSRF()."
     </form>$this->msg";
         return $str;
     }

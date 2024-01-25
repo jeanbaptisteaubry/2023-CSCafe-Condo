@@ -16,7 +16,8 @@ $Vue->setEntete(new Vue_Structure_Entete());
 
     if ($action == "AjoutPanierClient") {
         //on met dans le panier avant de calculer le menu
-        Modele_Commande::Panier_Ajouter_Produit_ParIdProduit($_SESSION["idEntreprise"], $_REQUEST["idProduit"]);
+        if(CSRF_direIsReload() == false)
+              Modele_Commande::Panier_Ajouter_Produit_ParIdProduit($_SESSION["idEntreprise"], $_REQUEST["idProduit"]);
     }
 
     $quantiteMenu = Modele_Commande::Panier_Quantite($_SESSION["idEntreprise"]);

@@ -1,12 +1,20 @@
 <?php
 
+use App\Modele\Modele_Catalogue;
+use App\Modele\Modele_Commande;
 use App\Modele\Modele_Entreprise;
 use App\Modele\Modele_Salarie;
 use App\Modele\Modele_Utilisateur;
+use App\Vue\Vue_Categories_Liste;
 use App\Vue\Vue_Connexion_Formulaire_client;
+use App\Vue\Vue_ConsentementRGPD;
+use App\Vue\Vue_Entreprise_Gerer_Compte;
 use App\Vue\Vue_Mail_Confirme;
 use App\Vue\Vue_Mail_ReinitMdp;
 use App\Vue\Vue_Menu_Administration;
+use App\Vue\Vue_Menu_Entreprise_Client;
+use App\Vue\Vue_Menu_Entreprise_Salarie;
+use App\Vue\Vue_Produits_Info_Clients;
 use App\Vue\Vue_Structure_BasDePage;
 use App\Vue\Vue_Structure_Entete;
 
@@ -30,6 +38,7 @@ switch ($action) {
 
         break;
     case "Se connecter" :
+        echo 1;
         if (isset($_REQUEST["compte"]) and isset($_REQUEST["password"])) {
             //Si tous les paramètres du formulaire sont bons
 
@@ -46,23 +55,46 @@ switch ($action) {
                         switch ($utilisateur["idCategorie_utilisateur"]) {
                             case 1:
                                 $_SESSION["typeConnexionBack"] = "administrateurLogiciel"; //Champ inutile, mais bien pour voir ce qu'il se passe avec des étudiants !
-                                $Vue->setMenu(new Vue_Menu_Administration());
+                                $Vue->setMenu(new Vue_Menu_Administration( $_SESSION["idCategorie_utilisateur"]));
                                 break;
                             case 2:
                                 $_SESSION["typeConnexionBack"] = "utilisateurCafe";
-                                $Vue->setMenu(new Vue_Menu_Administration());
+                                //If pas rgpd
+                                 ///Afficher vue rgpd
+                                ///
+                                ///
+                                //$Vue->addToCorps(new Vue_ConsentementRGPD());
+                                //else
+
+                                //{
+                                $Vue->setMenu(new Vue_Menu_Administration( $_SESSION["idCategorie_utilisateur"]));
+                                //
                                 break;
                             case 3:
                                 $_SESSION["typeConnexionBack"] = "entrepriseCliente";
                                 //error_log("idUtilisateur : " . $_SESSION["idUtilisateur"]);
                                 $_SESSION["idEntreprise"] = Modele_Entreprise::Entreprise_Select_Par_IdUtilisateur($_SESSION["idUtilisateur"])["idEntreprise"];
-                                include "./Controleur/Controleur_Gerer_Entreprise.php";
+
+
+                                $Vue->setEntete(new Vue_Structure_Entete());
+                                $Vue->setMenu(new Vue_Menu_Entreprise_Client());
+                                $Vue->addToCorps(new Vue_Entreprise_Gerer_Compte());
+                                $Vue->setBasDePage(new Vue_Structure_BasDePage());
                                 break;
                             case 4:
                                 $_SESSION["typeConnexionBack"] = "salarieEntrepriseCliente";
                                 $_SESSION["idSalarie"] = $utilisateur["idUtilisateur"];
                                 $_SESSION["idEntreprise"] = Modele_Salarie::Salarie_Select_byId($_SESSION["idUtilisateur"])["idEntreprise"];
-                                include "./Controleur/Controleur_Catalogue_client.php";
+                                $Vue->setEntete(new Vue_Structure_Entete());
+                                $quantiteMenu = Modele_Commande::Panier_Quantite($_SESSION["idEntreprise"]);
+
+                                $Vue->setMenu(new Vue_Menu_Entreprise_Salarie($quantiteMenu));
+
+                                //Vue_Entreprise_Client_ Menu();
+                                $listeCategorie = Modele_Catalogue::Categorie_Select_Tous();
+                                $Vue->addToCorps(new Vue_Categories_Liste($listeCategorie, false));
+                                $listeProduit = Modele_Catalogue::Produits_Select_Libelle_Categ("client");
+                                $Vue->addToCorps(new Vue_Produits_Info_Clients($listeProduit));
                                 break;
                         }
 

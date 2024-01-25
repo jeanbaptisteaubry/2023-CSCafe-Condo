@@ -1,0 +1,47 @@
+@startuml
+
+' Définition des classes
+class Livre {
+    +String titre
+    +String auteur
+    +String ISBN
+    +afficherInfos(): void
+}
+
+class LivreNumerique {
+    +String formatFichier
+    +int tailleFichier
+    +afficherInfos(): void
+}
+
+class Adherent {
+    +String nom
+    +String adresse
+    +int numeroAdherent
+}
+
+class Utilisateur {
+    {abstract}
+    +String nom
+    +String email
+}
+
+class Bibliotheque {
+    +List<Livre> livres
+    +List<Adherent> adherents
+}
+
+class Rayon {
+    +String numero
+}
+
+' Héritage
+Livre <|-- LivreNumerique
+Utilisateur <|-- Adherent
+
+' Associations
+Livre "1" -- "0..*" Bibliotheque : contient
+Adherent "0..*" -- "0..*" Livre : emprunte
+Bibliotheque "1" -- "0..*" Rayon : contient
+
+@enduml

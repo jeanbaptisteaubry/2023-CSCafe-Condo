@@ -24,6 +24,7 @@ class Vue_Commande_Etat extends Vue_Composant
                     <input type='hidden' name='case' value='Gerer_Commande'>
                     
                     <li><button type='submit' name='action' value='Toute'>Toutes</button> </li>
+                ".genereChampHiddenCSRF()."
                 </form>";
 
         while ($i < count($this->listeEtatCommande)) {
@@ -36,6 +37,7 @@ class Vue_Commande_Etat extends Vue_Composant
                             <input type='hidden' name='case' value='Gerer_Commande'>
                             <input type='hidden' name='idEtatCommande' value='$iemeEtatCommande[idEtatCommande]'>
                             <button type='submit' name='action' value='boutonCategorie'> $iemeEtatCommande[libelle]</button>
+                        ".genereChampHiddenCSRF()."
                         </form>
                    </li> 
                    ";
@@ -48,6 +50,7 @@ class Vue_Commande_Etat extends Vue_Composant
                     <input type='hidden' name='case' value='Gerer_Commande'> 
                     <li><input type='text' name='recherche' placeholder='Rechercher'> </li>
                     <li><button type='submit' name='action' value='okRechercher'>OK</button> </li>
+               ".genereChampHiddenCSRF()."
                 </form>";
         $str .=  "
             </ul>

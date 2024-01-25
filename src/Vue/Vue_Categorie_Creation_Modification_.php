@@ -77,7 +77,7 @@ private string $description="";
 
         $str .=  "</td>
         </tr>
-
+".genereChampHiddenCSRF()."
     </form>
 </table>
 

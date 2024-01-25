@@ -187,6 +187,7 @@ class Vue_Catalogue_Formulaire extends Vue_Composant
 
    
 </table>
+".genereChampHiddenCSRF()."
  </form>
 ";
         return $str;

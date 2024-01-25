@@ -171,7 +171,7 @@ class Vue_Entreprise_Formulaire extends Vue_Composant
 
         $str .=  "</td>
         </tr>
-
+".genereChampHiddenCSRF()."
     </form>
 </table>
 

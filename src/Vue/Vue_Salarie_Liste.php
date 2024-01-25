@@ -35,6 +35,7 @@ Les salariés se connecteront avec leur e-mail<br>
                             value="ajouterSalarie"> 
                                 Ajouter un salarié 
                         </button>
+               '.genereChampHiddenCSRF().'
                 </form>
             </td>
  
@@ -89,6 +90,7 @@ Les salariés se connecteront avec leur e-mail<br>
                                 value='ModiferSalarie'>
                                  Modifier 
                             </button>
+                  ".genereChampHiddenCSRF()."
                     </form>
                 </td>
                 <!-- Création du bouton Désactiver ou Activer-->
@@ -110,6 +112,7 @@ Les salariés se connecteront avec leur e-mail<br>
                                 value='DesactiverSalarie'> 
                                     Désactiver 
                             </button>
+                  ".genereChampHiddenCSRF()."
                     </form>
                 </td>";
                     break;
@@ -128,6 +131,7 @@ Les salariés se connecteront avec leur e-mail<br>
                             value='ActiverSalarie'>
                                 Activer 
                             </button>
+                 ".genereChampHiddenCSRF()."
                     </form>
                 </td>";
                     break;

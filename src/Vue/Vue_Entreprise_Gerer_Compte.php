@@ -26,7 +26,7 @@ class Vue_Entreprise_Gerer_Compte  extends Vue_Composant
                     <button type='submit' name='action' value='infoEntreprise'>
                         Les informations de l&apos;entreprise
                     </button>
-                    
+                 ".genereChampHiddenCSRF()."   
                 </form>
             </td>
         </tr>
@@ -40,7 +40,7 @@ class Vue_Entreprise_Gerer_Compte  extends Vue_Composant
                     <button type='submit' name='action' value='salariesHabitites'>
                         Personnes habilitées
                     </button>
-                    
+                  ".genereChampHiddenCSRF()."  
                 </form>
             </td>
         </tr>
@@ -53,7 +53,7 @@ class Vue_Entreprise_Gerer_Compte  extends Vue_Composant
                     <button type='submit' name='action' value='ChangerMDPEntreprise'>
                         Changer mot de passe
                     </button>
-                   
+                  ".genereChampHiddenCSRF()." 
                 </form>
             </td>
         </tr>
@@ -66,7 +66,7 @@ class Vue_Entreprise_Gerer_Compte  extends Vue_Composant
                     <button type='submit' name='action' value='deconnexionEntreprise'>
                         Se déconnecter
                     </button>
-                    
+                  ".genereChampHiddenCSRF()."  
                 </form>
             </td>
         </tr>

@@ -86,9 +86,10 @@ class Vue_Produits_Info_Clients extends Vue_Composant
                         <button class='btnRadius' type='submit' name='action' value='AjoutPanierClient'>
                             Ajouter au panier
                         </button>
-                        
+                        ".genereChampHiddenCSRF()."
                        </form>
                     </td>
+                    ".genereChampHiddenCSRF()."
                     </form>
                 </tr>
             

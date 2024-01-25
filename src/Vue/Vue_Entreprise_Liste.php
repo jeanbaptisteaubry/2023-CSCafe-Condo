@@ -32,6 +32,7 @@ class Vue_Entreprise_Liste  extends Vue_Composant
                                 name="action" value="nouveau">
                                     Nouvelle entreprise ? 
                         </button>
+               ".genereChampHiddenCSRF()."
                 </form>
             </td>
  
@@ -69,6 +70,7 @@ class Vue_Entreprise_Liste  extends Vue_Composant
                                     name='action' value='Modifer'> 
                                         Modifier 
                             </button>
+                   ".genereChampHiddenCSRF()."
                     </form>
                 </td>
                 <!-- Création du bouton Désactiver ou Activer-->
@@ -88,6 +90,7 @@ class Vue_Entreprise_Liste  extends Vue_Composant
                                     name='action' value='DesactiverEntreprise'> 
                                             Désactiver 
                             </button>
+                    ".genereChampHiddenCSRF()."
                     </form>
                 </td>
             </tr>
@@ -108,6 +111,7 @@ class Vue_Entreprise_Liste  extends Vue_Composant
                                     name='action' value='ActiverEntreprise'> 
                                         Activer 
                             </button>
+                   ".genereChampHiddenCSRF()."
                     </form>
                 </td>
             </tr>

@@ -86,6 +86,7 @@ private  string $mail="";
         }
         $str .=  "</td>
         </tr>
+        ".genereChampHiddenCSRF()."
     </form>
 </table>
 
